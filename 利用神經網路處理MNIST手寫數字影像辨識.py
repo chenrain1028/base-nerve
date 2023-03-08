@@ -24,9 +24,9 @@ print("Currently using", device)
 class MyDataset(Dataset):
   def __init__(self,Train=True):
     if Train==True:
-      data=np.loadtxt("MNIST/mnist_train.csv",delimiter=",")
+      data=np.loadtxt("mnist_train.csv",delimiter=",")
     else:
-      data=np.loadtxt("MNIST/mnist_test.csv",delimiter=",")
+      data=np.loadtxt("mnist_test.csv",delimiter=",")
     self.data = torch.tensor(data[:,1:]/255)        #這邊做簡單的歸一化，故這邊統一除以255
     self.label = torch.tensor(data[:,0])
   def __getitem__(self, index):
